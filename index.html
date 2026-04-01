@@ -790,72 +790,7 @@
             const nome = document.getElementById('nome').value || 'Nome Sobrenome';
             const cargo = document.getElementById('cargo').value || 'Cargo';
             const telefone = phoneEnabled ? (document.getElementById('telefone').value || '') : '';
-            
-            // Parte do telefone - só inclui se houver telefone e estiver habilitado
-            const phoneHTML = (phoneEnabled && telefone) ? 
-                `<div style="font-size:14px; line-height:20px; margin-top:30px;">Cel. ${telefone}</div>` : '';
-            const secondGifHTML = robotBannerEnabled ? `
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-              <tr>
-                <td align="left" style="padding-top:40px;">
-                  <img src="https://i.imgur.com/RLcUbzo.gif" alt="iaLAB | FSB Holding" height="44" style="display:block; border:0; max-width:100%; height:44px; width:auto;">
-                </td>
-              </tr>
-            </table>` : `
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-              <tr>
-                <td align="left" style="padding-top:40px; padding-bottom:12px;">
-                  <div style="width:56px; height:2px; background:#1d9bf0; display:block;"></div>
-                </td>
-              </tr>
-            </table>`;
-            
-            // Criar apenas o HTML interno da assinatura
-            const signatureContent = `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:600px;">
-        <tr>
-          <td style="font-family:Arial, Helvetica, sans-serif; color:#333333; font-size:14px;">
-            
-            <!-- Linha 1: duas colunas -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-              <tr>
-                <!-- Coluna esquerda -->
-                <td width="50%" valign="top" style="padding-top:28px;">
-                  <div style="font-size:20px; line-height:26px; margin:0;">${nome}</div>
-                  <div style="font-size:14px; line-height:20px; color:#555555; margin:0;">${cargo}</div>
-                  ${phoneHTML}
-                </td>
-
-                <!-- Coluna direita -->
-                <td width="50%" valign="top" align="right" style="padding-top:20px;">
-                  <img src="https://i.imgur.com/RLcUbzo.gif" alt="iaLAB | FSB Holding" width="200" style="display:block; border:0;">
-                </td>
-              </tr>
-            </table>
-
-            <!-- Linha 2: banner secundário em toda a largura -->
-            ${secondGifHTML}
-
-            <!-- Aviso legal -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-              <tr>
-                <td style="padding-top:20px; font-size:8px; line-height:11px; color:#555555; text-align:justify;">
-                  <p style="margin:0;">
-                    As informações contidas e as anexadas a esta comunicação podem ser confidenciais, legalmente privilegiadas ou ter a sua divulgação protegida de outra forma, sendo exclusivamente para uso de seu(s) destinatário(s). Se você não for o destinatário previsto desta comunicação, queira, por gentileza, excluir e destruir todas as cópias em seu poder, notifique o remetente que você recebeu esta comunicação por engano e esteja ciente de que a leitura ou a divulgação, bem como a adoção de qualquer ação baseada nesta comunicação estão expressamente proibidas.
-<br>
-                    As mensagens de e-mail podem conter vírus ou outros defeitos, não ser reproduzidas fielmente em outros sistemas ou ser interceptadas, excluídas ou interferidas sem o conhecimento do remetente ou do destinatário. A FSB Holding não assume nenhuma responsabilidade com relação a essas ocorrências. Esteja ciente de que a FSB Holding reserva-se o direito de interceptar, monitorar e reter mensagens de e-mail destinadas aos seus sistemas ou neles originadas, na medida do permitido pela legislação aplicável. Se você não se sente seguro com os riscos associados às mensagens de e-mail, poderá optar por não usá-las nas comunicações com a FSB Holding.
-                  </p>
-                  <p style="margin:10px 0 0 0;">
-                    The information contained in and attached to this communication may be confidential, legally privileged, or otherwise protected from disclosure, therefore exclusively for the use of its recipient(s). If you are not the intended recipient of this communication, please kindly delete and destroy all copies in your possession, notify the sender that you received this communication in error and be aware that reading or disclosing, as well as taking any action based on this communication are expressly prohibited.
-<br>
-                    E-mail messages may contain viruses or other defects may not be faithfully reproduced on other systems, or may be intercepted, deleted or interfered without the knowledge of the sender or recipient. FSB Holding assumes no responsibility for these occurrences. Please be aware that FSB Holding reserves its right to intercept, monitor and retain email messages destined for, or originated from its systems, to the extent authorized by applicable law. If you are unsure of the risks associated with email messages, you may choose not to use email in your communications with FSB Holding.
-                  </p>
-                </td>
-              </tr>
-            </table>
-
-          </td>
-        </tr>
-      </table>`;
+            const signatureContent = generateSignatureHTML(nome, cargo, telefone);
             
             // Criar elemento temporário limpo
             const container = document.createElement('div');
