@@ -550,8 +550,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="cargo">Cargo</label>
-                    <input type="text" id="cargo" placeholder="Digite seu cargo" value="">
+                    <label for="cargo">Departamento/Função</label>
+                    <input type="text" id="cargo" placeholder="Digite seu departamento/função" value="">
                 </div>
 
                 <div class="toggle-group" onclick="togglePhoneField()">
@@ -778,7 +778,7 @@
         // Função para atualizar a prévia
         function updatePreview() {
             const nome = document.getElementById('nome').value || 'Nome Sobrenome';
-            const cargo = document.getElementById('cargo').value || 'Cargo';
+            const cargo = document.getElementById('cargo').value || 'Departamento/Função';
             const telefone = phoneEnabled ? (document.getElementById('telefone').value || '') : '';
             
             const signatureHTML = generateSignatureHTML(nome, cargo, telefone);
@@ -788,7 +788,7 @@
         // Função para copiar a assinatura
         function copySignature() {
             const nome = document.getElementById('nome').value || 'Nome Sobrenome';
-            const cargo = document.getElementById('cargo').value || 'Cargo';
+            const cargo = document.getElementById('cargo').value || 'Departamento/Função';
             const telefone = phoneEnabled ? (document.getElementById('telefone').value || '') : '';
             const signatureContent = generateSignatureHTML(nome, cargo, telefone);
             
@@ -824,7 +824,7 @@
         // Função para mostrar o código HTML
         function showHTMLCode() {
             const nome = document.getElementById('nome').value || 'Nome Sobrenome';
-            const cargo = document.getElementById('cargo').value || 'Cargo';
+            const cargo = document.getElementById('cargo').value || 'Departamento/Função';
             const telefone = phoneEnabled ? (document.getElementById('telefone').value || '') : '';
             
             const signatureHTML = generateSignatureHTML(nome, cargo, telefone);
